@@ -6,12 +6,12 @@ import Utils from "./Utils";
 export default abstract class BaseGame implements IBaseGame {
     head: Piece;
     tail: Piece;
-    food: Piece;
-    goldenApple: Piece;
+    food: Piece | null;
+    goldenApple: Piece | null;
     length: number;
     growth: number;
     score: number;
-    currentLevel: Level;
+    currentLevel: Level | null;
     garden: HTMLDivElement;
 
     protected moving: boolean = false;
