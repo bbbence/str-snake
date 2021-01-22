@@ -23,7 +23,7 @@ export default class Game extends BaseGame {
 
   mayIHaveGoldenApple(): boolean {
     const chance = 5;
-    const pick = Math.random() * 100;
+    const pick = Math.floor(Math.random() * 10);
     return pick < chance;
   }
 
@@ -187,7 +187,7 @@ export default class Game extends BaseGame {
         this.growth += 1; // Snake got bigger
       }
 
-      this.updateScore(type === 'food' ? 10 : 50); // Calculate the new score
+      this.updateScore(type === 'food' ? 1 : -2); // Calculate the new score
       this.showScore(); // Update the score
     }
   }
@@ -252,8 +252,7 @@ export default class Game extends BaseGame {
       return this.score;
     }
 
-    this.score += won;
-
+    this.score = this.score >= 20 ? 0 : this.score += won;
     return this.score;
   }
 
