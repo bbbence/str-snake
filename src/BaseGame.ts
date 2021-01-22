@@ -4,6 +4,16 @@ import Piece from "./Piece";
 import Utils from "./Utils";
 
 export default abstract class BaseGame implements IBaseGame {
+    head: Piece;
+    tail: Piece;
+    food: Piece;
+    goldenApple: Piece;
+    length: number;
+    growth: number;
+    score: number;
+    currentLevel: Level;
+    garden: HTMLDivElement;
+
     protected moving: boolean = false;
 
     protected paused: boolean = false;
@@ -42,5 +52,5 @@ export default abstract class BaseGame implements IBaseGame {
      * metódust, hogy eltávolítsd őket az oldalról
      * 4. a this.gridVisible értékét állítsd false -ra
      */
-    abstract removeGrid (): void;
+    abstract removeGrid(): void;
 }
