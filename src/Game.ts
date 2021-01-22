@@ -243,7 +243,7 @@ export default class Game extends BaseGame {
 
   getSpeed(): number {
     const initialSpeed = 200;
-    const calculated = (initialSpeed - this.growth ? this.growth : 0 * 0.5) + this.debugSpeed + this.keyHeld;
+    const calculated = (initialSpeed - this.growth * 0.5) + this.debugSpeed + this.keyHeld;
     return Utils.bound(calculated, FASTEST, SLOWEST);
   }
 
