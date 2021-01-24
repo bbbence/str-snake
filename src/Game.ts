@@ -251,10 +251,11 @@ export default class Game extends BaseGame {
     if (this.noClip === true) {
       return this.score;
     }
-    if (this.expertMode) {
-      this.score = this.score >= 20 ? 0 : this.score += won;
-    } else {
+    else {
       this.score += won;
+    }
+    if (this.expertMode) {
+      this.score = this.score >= 20 ? 0 : this.score;
     }
     return this.score;
   }
