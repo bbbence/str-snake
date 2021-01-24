@@ -380,7 +380,7 @@ export default class Game extends BaseGame {
         // Expert mode
         case keys.E:
           this.expertMode = !this.expertMode;
-          if(this.expertMode){
+          if (this.expertMode) {
             document.querySelector('#expert-mode').classList.add('kbd-active');
             this.updateScore(0);
             this.showScore();
