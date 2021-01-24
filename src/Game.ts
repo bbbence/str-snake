@@ -187,7 +187,7 @@ export default class Game extends BaseGame {
         this.growth += 1; // Snake got bigger
       }
 
-      this.updateScore(type === 'food' ? 1 : -2); // Calculate the new score
+      this.updateScore(type === 'food' ? this.expertMode ? 1 : 10 : this.expertMode ? -2 : 50); // Calculate the new score
       this.showScore(); // Update the score
     }
   }
@@ -251,8 +251,11 @@ export default class Game extends BaseGame {
     if (this.noClip === true) {
       return this.score;
     }
-
-    this.score = this.score >= 20 ? 0 : this.score += won;
+    if (this.expertMode) {
+      this.score = this.score >= 20 ? 0 : this.score += won;
+    } else {
+      this.score += won;
+    }
     return this.score;
   }
 
@@ -366,6 +369,13 @@ export default class Game extends BaseGame {
         // Speed up the snake
         case keys.K:
           this.debugSpeed -= 10;
+          break;
+        // Expert mode
+        case keys.E:
+          this.expertMode = !this.expertMode;
+          this.expertMode ?
+            document.querySelector('#expert-mode').classList.add('kbd-active') :
+            document.querySelector('#expert-mode').classList.remove('kbd-active');
           break;
         // Pause or restart the game
         case keys.SPACE:

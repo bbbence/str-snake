@@ -26,6 +26,8 @@ export default abstract class BaseGame implements IBaseGame {
 
     protected noClip: boolean = false;
 
+    protected expertMode: boolean = false;
+
     /**
      * @returns {number}
      * Egy random számot szorozz meg a this.level.length -el, 
