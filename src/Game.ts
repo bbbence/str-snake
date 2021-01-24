@@ -23,7 +23,7 @@ export default class Game extends BaseGame {
 
   mayIHaveGoldenApple(): boolean {
     const chance = 5;
-    const pick = Math.floor(Math.random() * 10);
+    const pick = Math.random() * 100;
     return pick < chance;
   }
 
