@@ -251,9 +251,7 @@ export default class Game extends BaseGame {
     if (this.noClip === true) {
       return this.score;
     }
-    else {
-      this.score += won;
-    }
+    this.score += won;
     if (this.expertMode) {
       this.score = this.score >= 20 ? 0 : this.score;
     }
@@ -346,13 +344,13 @@ export default class Game extends BaseGame {
     }
     if (this.expertMode) {
       if ((lastDirection === keys.UP && key === keys.RIGHT)
-      || (lastDirection === keys.DOWN && key === keys.LEFT)
-      || (lastDirection === keys.LEFT && key === keys.UP)
-      || (lastDirection === keys.RIGHT && key === keys.DOWN)) {
-      return false;
+        || (lastDirection === keys.DOWN && key === keys.LEFT)
+        || (lastDirection === keys.LEFT && key === keys.UP)
+        || (lastDirection === keys.RIGHT && key === keys.DOWN)) {
+        return false;
       }
     }
-return true;
+    return true;
   }
 
   setEvents(): void {
