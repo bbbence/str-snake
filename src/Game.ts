@@ -343,7 +343,15 @@ export default class Game extends BaseGame {
       || (lastDirection === keys.RIGHT && key === keys.LEFT)) {
       return false;
     }
-    return true;
+    if (this.expertMode) {
+      if ((lastDirection === keys.UP && key === keys.RIGHT)
+      || (lastDirection === keys.DOWN && key === keys.LEFT)
+      || (lastDirection === keys.LEFT && key === keys.UP)
+      || (lastDirection === keys.RIGHT && key === keys.DOWN)) {
+      return false;
+      }
+    }
+return true;
   }
 
   setEvents(): void {
